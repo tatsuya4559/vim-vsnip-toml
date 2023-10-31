@@ -74,6 +74,10 @@ function! vsnip_toml#edit(filetype) abort
   endtry
 
   let filetype = empty(a:filetype) ? &filetype : a:filetype
+  if empty(filetype)
+    echom 'No filetype detected.'
+    return
+  endif
   let snip_src = s:Filepath.join(snip_src_dir, printf('%s.toml', filetype))
   exe 'edit' snip_src
 endfunction
