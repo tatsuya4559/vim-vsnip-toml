@@ -44,7 +44,7 @@ function! vsnip_toml#transpile(file) abort
 
   "return if the file is not snippet src
   if !s:Filepath.contains(a:file, src_dir)
-    if get(g: 'vsnip_toml_debug')
+    if get(g:, 'vsnip_toml_debug')
       echom printf('Not a snippet source: %s', a:file)
       echom src_dir
     endif
